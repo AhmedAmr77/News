@@ -15,42 +15,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-mP-8lJ">
-                                <rect key="frame" x="8" y="96" width="398" height="56"/>
-                                <color key="barTintColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nB2-oP-mBQ">
-                                <rect key="frame" x="8" y="160" width="398" height="702"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="104" width="382" height="758"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" id="ylL-9W-VSS" customClass="CardTableViewCell" customModule="News" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="398" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ylL-9W-VSS" id="Nfs-jQ-fUv">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nB2-oP-mBQ" firstAttribute="top" secondItem="6aw-mP-8lJ" secondAttribute="bottom" constant="8" id="FrS-Hw-Pqg"/>
+                            <constraint firstItem="nB2-oP-mBQ" firstAttribute="top" secondItem="Sxd-Ms-w4Q" secondAttribute="top" constant="16" id="Dhp-Of-6CX"/>
                             <constraint firstItem="Sxd-Ms-w4Q" firstAttribute="bottom" secondItem="nB2-oP-mBQ" secondAttribute="bottom" id="HT0-Rf-T0U"/>
-                            <constraint firstAttribute="trailing" secondItem="6aw-mP-8lJ" secondAttribute="trailing" constant="8" id="bSz-Qr-ag4"/>
-                            <constraint firstItem="nB2-oP-mBQ" firstAttribute="leading" secondItem="Sxd-Ms-w4Q" secondAttribute="leading" constant="8" id="dVp-KC-stg"/>
-                            <constraint firstItem="6aw-mP-8lJ" firstAttribute="leading" secondItem="Sxd-Ms-w4Q" secondAttribute="leading" constant="8" id="kXt-j5-jML"/>
-                            <constraint firstItem="Sxd-Ms-w4Q" firstAttribute="trailing" secondItem="nB2-oP-mBQ" secondAttribute="trailing" constant="8" id="vqv-QA-GAF"/>
-                            <constraint firstItem="6aw-mP-8lJ" firstAttribute="top" secondItem="Sxd-Ms-w4Q" secondAttribute="top" constant="8" id="xl1-Kh-HTV"/>
+                            <constraint firstItem="nB2-oP-mBQ" firstAttribute="leading" secondItem="Sxd-Ms-w4Q" secondAttribute="leading" constant="16" id="dVp-KC-stg"/>
+                            <constraint firstItem="Sxd-Ms-w4Q" firstAttribute="trailing" secondItem="nB2-oP-mBQ" secondAttribute="trailing" constant="16" id="vqv-QA-GAF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sxd-Ms-w4Q"/>
                     </view>
                     <navigationItem key="navigationItem" id="mir-mJ-IOs"/>
                     <connections>
                         <outlet property="newsTableView" destination="nB2-oP-mBQ" id="Xur-7p-Dhp"/>
-                        <outlet property="searchBar" destination="6aw-mP-8lJ" id="gRv-4B-GD8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

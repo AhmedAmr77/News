@@ -12,8 +12,9 @@ import RxCocoa
 
 class HomeScreenViewController: UIViewController {
     
-    @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak var newsTableView: UITableView!
+    
+    private var searchBar: UISearchBar!
     
     private var homeScreenViewModel: HomeScreenViewModel!
     private var disposeBag: DisposeBag!
@@ -22,6 +23,17 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //add search bar to navigation bar
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
+        
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20))
+        let rightNavBarButton = UIBarButtonItem(customView:searchBar)
+        navigationItem.rightBarButtonItem = rightNavBarButton
+                
         //register cell nib file
         let homeScreenNibCell = UINib(nibName: Constants.homeScreenNibCell, bundle: nil)
         newsTableView.register(homeScreenNibCell, forCellReuseIdentifier: Constants.homeScreenNibCell)
@@ -39,6 +51,7 @@ class HomeScreenViewController: UIViewController {
             let castedCell = cell as! CardTableViewCell
             castedCell.article = item
         }.disposed(by: disposeBag)
+        searchBar.rx.text.orEmpty.distinctUntilChanged().bind(to: homeScreenViewModel.searchValue).disposed(by: disposeBag)
         
         //when item selected
         newsTableView.rx.modelSelected(Article.self).subscribe(onNext: { [weak self] (article) in
@@ -50,6 +63,12 @@ class HomeScreenViewController: UIViewController {
         
         
         homeScreenViewModel.getNews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let indexPathForSelectedRow = newsTableView.indexPathForSelectedRow {
+            newsTableView.deselectRow(at: indexPathForSelectedRow, animated: animated)
+        }
     }
 }
 
