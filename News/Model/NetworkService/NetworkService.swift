@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class NetworkService {
-    func getNews(completion: @escaping (News?, Error?) -> Void) {
+    func getNews(completion: @escaping (Result<News?, NSError>) -> Void) {
         AF.request(Constants.newsURL)
             .validate()
             .responseJSON(completionHandler: { (response) in
@@ -18,7 +18,7 @@ class NetworkService {
                     //add custom Error
                     let error = NSError(domain: Constants.newsURL, code: 0, userInfo: [NSLocalizedDescriptionKey: Constants.NetworkServiceErrorMessage])
                     print("at guard statusCode")
-                    completion(nil, error)
+                    completion(.failure(error))
                     return
                 }
                 if statusCode == 200 {
@@ -27,31 +27,31 @@ class NetworkService {
                         //add custom Error
                         let error = NSError(domain: Constants.newsURL, code: 0, userInfo: [NSLocalizedDescriptionKey: Constants.NetworkServiceErrorMessage])
                         print("at jsonResponse")
-                        completion(nil, error)
+                        completion(.failure(error))
                         return
                     }
                     guard let theJsonData = try? JSONSerialization.data(withJSONObject: jsonResponse, options: []) else {
                         //add custom Error
                         let error = NSError(domain: Constants.newsURL, code: 0, userInfo: [NSLocalizedDescriptionKey: Constants.NetworkServiceErrorMessage])
                         print("at jsonData error")
-                        completion(nil, error)
+                        completion(.failure(error))
                         return
                     }
                     guard let responseObject = try? JSONDecoder().decode(News.self, from: theJsonData) else {
                         //add custom Error
                         let error = NSError(domain: Constants.newsURL, code: 0, userInfo: [NSLocalizedDescriptionKey: Constants.NetworkServiceErrorMessage])
                         print("at responseObject, error on parsing")
-                        completion(nil, error)
+                        completion(.failure(error))
                         return
                     }
                     print("success API Call")
-                    completion(responseObject, nil)
+                    completion(.success(responseObject))
                 }else{
                     //add error depending on statusCode
                     let message = "Error Message Parsed From Server"
                     let error = NSError(domain: Constants.newsURL, code: 0, userInfo: [NSLocalizedDescriptionKey: message])
                     print(error)
-                    completion(nil, error)
+                    completion(.failure(error))
                 }
             })
     }
