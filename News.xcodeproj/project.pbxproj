@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1A931E26D7BC20001A3E00 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A931C26D7BC20001A3E00 /* CardTableViewCell.swift */; };
+		0D1A931F26D7BC20001A3E00 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D1A931D26D7BC20001A3E00 /* CardTableViewCell.xib */; };
 		0DA7D59B26D7AFEE009C1D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA7D59A26D7AFEE009C1D6A /* AppDelegate.swift */; };
 		0DA7D59D26D7AFEE009C1D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA7D59C26D7AFEE009C1D6A /* SceneDelegate.swift */; };
 		0DA7D59F26D7AFEE009C1D6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA7D59E26D7AFEE009C1D6A /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D1A931C26D7BC20001A3E00 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		0D1A931D26D7BC20001A3E00 /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
 		0DA7D59726D7AFEE009C1D6A /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA7D59A26D7AFEE009C1D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DA7D59C26D7AFEE009C1D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1A931B26D7BBE2001A3E00 /* CardTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0D1A931C26D7BC20001A3E00 /* CardTableViewCell.swift */,
+				0D1A931D26D7BC20001A3E00 /* CardTableViewCell.xib */,
+			);
+			path = CardTableViewCell;
+			sourceTree = "<group>";
+		};
 		0DA7D58E26D7AFEE009C1D6A = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +106,7 @@
 		0DA7D5B026D7B0D7009C1D6A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0D1A931B26D7BBE2001A3E00 /* CardTableViewCell */,
 				0DA7D59E26D7AFEE009C1D6A /* ViewController.swift */,
 				0DA7D5A026D7AFEE009C1D6A /* Main.storyboard */,
 			);
@@ -112,7 +126,6 @@
 				C3B2BD93C20D97847C2D8722 /* Pods-News.debug.xcconfig */,
 				4BA16AD72A9A4C11756136C6 /* Pods-News.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -187,6 +200,7 @@
 				0DA7D5A726D7AFEF009C1D6A /* LaunchScreen.storyboard in Resources */,
 				0DA7D5A426D7AFEF009C1D6A /* Assets.xcassets in Resources */,
 				0DA7D5A226D7AFEE009C1D6A /* Main.storyboard in Resources */,
+				0D1A931F26D7BC20001A3E00 /* CardTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +256,7 @@
 				0DA7D59F26D7AFEE009C1D6A /* ViewController.swift in Sources */,
 				0DA7D59B26D7AFEE009C1D6A /* AppDelegate.swift in Sources */,
 				0DA7D59D26D7AFEE009C1D6A /* SceneDelegate.swift in Sources */,
+				0D1A931E26D7BC20001A3E00 /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
