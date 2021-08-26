@@ -9,7 +9,15 @@
 import UIKit
 
 class DetailsScreenViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var articleImageView: UIImageView!
+    @IBOutlet weak var outterContainerView: UIView!
+    @IBOutlet weak var innerContainerView: UIView!
+    @IBOutlet weak var articleSourceNameLabel: UILabel!
+    @IBOutlet weak var articleTitleLabel: UILabel!
+    @IBOutlet weak var articleDescriptionLabel: UILabel!
+    
     var article: Article!
     
     override func viewDidLoad() {
