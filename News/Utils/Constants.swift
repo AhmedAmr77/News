@@ -11,4 +11,6 @@ import Foundation
 struct Constants {
     static let newsURL = "https://newsapi.org/v2/top-headlines?country=eg&apiKey=63b1f94dad044add871d1e319c630265"
     static let NetworkServiceErrorMessage = "Error in Network Service"
+    static let homeScreenNibCell = "CardTableViewCell"
+                                    
 }

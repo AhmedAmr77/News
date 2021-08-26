@@ -13,8 +13,8 @@ class HomeScreenViewModel {
     
     private var networkService: NetworkService!
     
-    private var newsSubject = PublishSubject<News>()
-    var newsObservable: Observable<News>
+    private var newsSubject = PublishSubject<[Article]>()
+    var newsObservable: Observable<[Article]>
     
     init() {
         networkService = NetworkService()
@@ -26,13 +26,14 @@ class HomeScreenViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let news):
-                if let news = news {
-                    self.newsSubject.onNext(news)
+                guard let news = news else { return }
+                if news.status == "ok" {
+                    self.newsSubject.onNext(news.articles)
                 } else {
-                    print("errorrrrr")                  //showError
+                    print("sttus not ok")                  //showError
                 }
             case .failure(let error):
-                print(error.localizedDescription)       //showError
+                print(error.localizedDescription)          //showError
             }
         }
     }
