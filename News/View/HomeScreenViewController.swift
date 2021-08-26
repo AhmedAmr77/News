@@ -40,6 +40,15 @@ class HomeScreenViewController: UIViewController {
             castedCell.article = item
         }.disposed(by: disposeBag)
         
+        //when item selected
+        newsTableView.rx.modelSelected(Article.self).subscribe(onNext: { [weak self] (article) in
+            guard let self = self else { return }
+            let detailsVC = self.storyboard?.instantiateViewController(identifier: Constants.detailsScreenVC) as! DetailsScreenViewController
+            detailsVC.article = article
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }).disposed(by: disposeBag)
+        
+        
         homeScreenViewModel.getNews()
     }
 }
