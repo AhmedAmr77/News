@@ -24,6 +24,9 @@
 		0DA7D5A426D7AFEF009C1D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7D5A326D7AFEF009C1D6A /* Assets.xcassets */; };
 		0DA7D5A726D7AFEF009C1D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7D5A526D7AFEF009C1D6A /* LaunchScreen.storyboard */; };
 		0DF0D48826D8FE8200D44DF8 /* NewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0D48726D8FE8200D44DF8 /* NewsTests.swift */; };
+		0DF0D49126D90BC900D44DF8 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0D49026D90BC900D44DF8 /* MockNetworkService.swift */; };
+		0DF0D49526D90BC900D44DF8 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0D49426D90BC900D44DF8 /* NetworkServiceTests.swift */; };
+		0DF0D49726D90FAE00D44DF8 /* HomeScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0D49626D90FAE00D44DF8 /* HomeScreenViewModelTests.swift */; };
 		BE79D602229AAD59C10605AE /* Pods_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128EEB1A9CFE48DA9C726BC6 /* Pods_News.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +62,9 @@
 		0DF0D48526D8FE8200D44DF8 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF0D48726D8FE8200D44DF8 /* NewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTests.swift; sourceTree = "<group>"; };
 		0DF0D48926D8FE8200D44DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DF0D49026D90BC900D44DF8 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		0DF0D49426D90BC900D44DF8 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		0DF0D49626D90FAE00D44DF8 /* HomeScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTests.swift; sourceTree = "<group>"; };
 		128EEB1A9CFE48DA9C726BC6 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA16AD72A9A4C11756136C6 /* Pods-News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.release.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.release.xcconfig"; sourceTree = "<group>"; };
 		C3B2BD93C20D97847C2D8722 /* Pods-News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.debug.xcconfig"; path = "Target Support Files/Pods-News/Pods-News.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,10 +192,21 @@
 		0DF0D48626D8FE8200D44DF8 /* NewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				0DF0D49426D90BC900D44DF8 /* NetworkServiceTests.swift */,
+				0DF0D49626D90FAE00D44DF8 /* HomeScreenViewModelTests.swift */,
+				0DF0D48F26D90B8000D44DF8 /* Mocks */,
 				0DF0D48726D8FE8200D44DF8 /* NewsTests.swift */,
 				0DF0D48926D8FE8200D44DF8 /* Info.plist */,
 			);
 			path = NewsTests;
+			sourceTree = "<group>";
+		};
+		0DF0D48F26D90B8000D44DF8 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0DF0D49026D90BC900D44DF8 /* MockNetworkService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		137A37D5B0F091CCBB504DB8 /* Pods */ = {
@@ -374,6 +391,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF0D49126D90BC900D44DF8 /* MockNetworkService.swift in Sources */,
+				0DF0D49726D90FAE00D44DF8 /* HomeScreenViewModelTests.swift in Sources */,
+				0DF0D49526D90BC900D44DF8 /* NetworkServiceTests.swift in Sources */,
 				0DF0D48826D8FE8200D44DF8 /* NewsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
