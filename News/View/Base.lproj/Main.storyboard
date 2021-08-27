@@ -29,19 +29,59 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2F-ak-YHn" userLabel="noConnectionContainer">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noConnection" translatesAutoresizingMaskIntoConstraints="NO" id="kMp-Fo-Kc6">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="kMp-Fo-Kc6" firstAttribute="top" secondItem="v2F-ak-YHn" secondAttribute="top" id="52R-QN-8V1"/>
+                                    <constraint firstItem="kMp-Fo-Kc6" firstAttribute="leading" secondItem="v2F-ak-YHn" secondAttribute="leading" id="E7W-gb-QP6"/>
+                                    <constraint firstAttribute="trailing" secondItem="kMp-Fo-Kc6" secondAttribute="trailing" id="OOU-rj-fg2"/>
+                                    <constraint firstAttribute="bottom" secondItem="kMp-Fo-Kc6" secondAttribute="bottom" id="egm-c1-fhf"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmk-Of-k1W" userLabel="noItemContainer">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noItem" translatesAutoresizingMaskIntoConstraints="NO" id="0wL-b1-zF5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="0wL-b1-zF5" firstAttribute="leading" secondItem="wmk-Of-k1W" secondAttribute="leading" id="AUc-Ya-6Uj"/>
+                                    <constraint firstAttribute="trailing" secondItem="0wL-b1-zF5" secondAttribute="trailing" id="BRx-SK-Atc"/>
+                                    <constraint firstAttribute="bottom" secondItem="0wL-b1-zF5" secondAttribute="bottom" id="Rn4-Dz-TdV"/>
+                                    <constraint firstItem="0wL-b1-zF5" firstAttribute="top" secondItem="wmk-Of-k1W" secondAttribute="top" id="zXl-rG-4mS"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="v2F-ak-YHn" firstAttribute="top" secondItem="HUs-wt-0Ic" secondAttribute="topMargin" id="4kj-TH-wSK"/>
+                            <constraint firstAttribute="trailing" secondItem="v2F-ak-YHn" secondAttribute="trailing" id="84g-vG-Ehw"/>
                             <constraint firstItem="nB2-oP-mBQ" firstAttribute="top" secondItem="Sxd-Ms-w4Q" secondAttribute="top" constant="16" id="Dhp-Of-6CX"/>
                             <constraint firstItem="Sxd-Ms-w4Q" firstAttribute="bottom" secondItem="nB2-oP-mBQ" secondAttribute="bottom" id="HT0-Rf-T0U"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="v2F-ak-YHn" secondAttribute="bottom" id="JJh-7T-tfv"/>
+                            <constraint firstAttribute="trailing" secondItem="wmk-Of-k1W" secondAttribute="trailing" id="S4q-8R-Ogg"/>
                             <constraint firstItem="nB2-oP-mBQ" firstAttribute="leading" secondItem="Sxd-Ms-w4Q" secondAttribute="leading" constant="16" id="dVp-KC-stg"/>
+                            <constraint firstItem="wmk-Of-k1W" firstAttribute="leading" secondItem="HUs-wt-0Ic" secondAttribute="leading" id="erU-xz-jjV"/>
+                            <constraint firstItem="wmk-Of-k1W" firstAttribute="top" secondItem="HUs-wt-0Ic" secondAttribute="topMargin" id="fm4-Jd-vPO"/>
+                            <constraint firstItem="v2F-ak-YHn" firstAttribute="leading" secondItem="HUs-wt-0Ic" secondAttribute="leading" id="n9l-4G-Baw"/>
                             <constraint firstItem="Sxd-Ms-w4Q" firstAttribute="trailing" secondItem="nB2-oP-mBQ" secondAttribute="trailing" constant="16" id="vqv-QA-GAF"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="wmk-Of-k1W" secondAttribute="bottom" id="zAh-dF-7Gi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sxd-Ms-w4Q"/>
                     </view>
                     <navigationItem key="navigationItem" id="mir-mJ-IOs"/>
                     <connections>
                         <outlet property="newsTableView" destination="nB2-oP-mBQ" id="Xur-7p-Dhp"/>
+                        <outlet property="noConnectionContainerView" destination="v2F-ak-YHn" id="SFY-X4-SLu"/>
+                        <outlet property="noItemContainerView" destination="wmk-Of-k1W" id="JFH-Jt-bGd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,4 +195,8 @@
             <point key="canvasLocation" x="131.8840579710145" y="117.85714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noConnection" width="347" height="484"/>
+        <image name="noItem" width="125" height="100"/>
+    </resources>
 </document>

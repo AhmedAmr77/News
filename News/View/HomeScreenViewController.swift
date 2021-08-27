@@ -13,9 +13,11 @@ import RxCocoa
 class HomeScreenViewController: UIViewController {
     
     @IBOutlet weak var newsTableView: UITableView!
-    
+    @IBOutlet weak var noConnectionContainerView: UIView!
+    @IBOutlet weak var noItemContainerView: UIView!
+
     private var searchBar: UISearchBar!
-    
+
     private var homeScreenViewModel: HomeScreenViewModel!
     private var disposeBag: DisposeBag!
     private var activityView:UIActivityIndicatorView!
@@ -43,6 +45,12 @@ class HomeScreenViewController: UIViewController {
         disposeBag = DisposeBag()
         activityView = UIActivityIndicatorView(style: .large)
 
+        //swipe to refresh
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipe(_:)))
+        swipe.direction = .down
+        swipe.numberOfTouchesRequired = 1
+        noConnectionContainerView.addGestureRecognizer(swipe)
+        
         //setting delegate
         newsTableView.rx.setDelegate(self).disposed(by: disposeBag)
         
@@ -61,6 +69,45 @@ class HomeScreenViewController: UIViewController {
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }).disposed(by: disposeBag)
         
+        //listen while getting data
+        homeScreenViewModel.connectivityObservable.subscribe(onNext: {[weak self] (boolValue) in
+            guard let self = self else { return }
+                switch boolValue{
+                case true:
+                    self.noConnectionContainerView.isHidden = true
+                    print("connectivityObservable true")
+                case false:
+                    self.noConnectionContainerView.isHidden = false
+                    print("connectivityObservable false")
+                }
+        }).disposed(by: disposeBag)
+        
+        homeScreenViewModel.errorObservable.subscribe(onNext: {[weak self] (message) in
+            guard let self = self else { return }
+            self.showError(message: message)
+        }).disposed(by: disposeBag)
+        
+        homeScreenViewModel.noItemObservable.subscribe(onNext: {[weak self] (boolValue) in
+            guard let self = self else { return }
+            switch boolValue{
+            case true:
+                self.noItemContainerView.isHidden = false
+                print("noItemContainerView true")
+            case false:
+                self.noItemContainerView.isHidden = true
+                print("noItemContainerView false")
+            }
+        }).disposed(by: disposeBag)
+        
+        homeScreenViewModel.loadingObservable.subscribe(onNext: {[weak self] (boolValue) in
+            guard let self = self else { return }
+            switch boolValue{
+            case true:
+                self.showLoading()
+            case false:
+                self.hideLoading()
+            }
+        }).disposed(by: disposeBag)
         
         homeScreenViewModel.getNews()
     }
@@ -69,6 +116,25 @@ class HomeScreenViewController: UIViewController {
         if let indexPathForSelectedRow = newsTableView.indexPathForSelectedRow {
             newsTableView.deselectRow(at: indexPathForSelectedRow, animated: animated)
         }
+    }
+    
+    @objc func handleSwipe(_ sender: UITapGestureRecognizer? = nil) {
+        homeScreenViewModel.getNews()
+    }
+    
+    private func showError(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    }
+    
+    private func showLoading() {
+        activityView!.center = self.view.center
+        self.view.addSubview(activityView!)
+        activityView!.startAnimating()
+    }
+    
+    private func hideLoading() {
+        activityView!.stopAnimating()
     }
 }
 
