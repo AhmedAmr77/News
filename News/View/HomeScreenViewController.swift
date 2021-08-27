@@ -18,7 +18,7 @@ class HomeScreenViewController: UIViewController {
 
     private var searchBar: UISearchBar!
 
-    private var homeScreenViewModel: HomeScreenViewModel!
+    private var homeScreenViewModel: ViewModelProtocol!
     private var disposeBag: DisposeBag!
     private var activityView:UIActivityIndicatorView!
     

@@ -9,7 +9,11 @@
 import Foundation
 import Alamofire
 
-class NetworkService {
+protocol NetworkServiceProtocol {
+    func getNews(completion: @escaping (Result<News?, NSError>) -> Void)
+}
+
+class NetworkService: NetworkServiceProtocol {
     func getNews(completion: @escaping (Result<News?, NSError>) -> Void) {
         AF.request(Constants.newsURL)
             .validate()

@@ -10,10 +10,20 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class HomeScreenViewModel {
+protocol ViewModelProtocol {
+    var newsObservable: Observable<[Article]>{ get }
+    var searchValue: BehaviorRelay<String>{ get }
+    var connectivityObservable: Observable <Bool>{ get }
+    var errorObservable: Observable<String>{ get }
+    var loadingObservable: Observable<Bool>{ get }
+    var noItemObservable: Observable<Bool>{ get }
+    func getNews()
+}
+
+class HomeScreenViewModel: ViewModelProtocol {
     
-    private var networkService: NetworkService!
-    private var disposeBag = DisposeBag()
+    private let networkService: NetworkServiceProtocol!
+    private let disposeBag = DisposeBag()
 
     private var newsSubject = PublishSubject<[Article]>()
     var newsObservable: Observable<[Article]>
@@ -33,8 +43,8 @@ class HomeScreenViewModel {
     var loadingObservable: Observable<Bool>
     var noItemObservable: Observable<Bool>
     
-    init() {
-        networkService = NetworkService()
+    init(networkService: NetworkServiceProtocol = NetworkService()) {
+        self.networkService = networkService
         newsObservable = newsSubject.asObservable()
         searchedData = articles
         
