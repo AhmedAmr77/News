@@ -31,7 +31,10 @@ class DetailsScreenViewController: UIViewController {
         outterContainerView.layer.cornerRadius = 15
         innerContainerView.layer.cornerRadius = 15
         
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1)
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
+        navigationController?.navigationBar.standardAppearance = appearance
+        
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.topItem?.backBarButtonItem?.tintColor = #colorLiteral(red: 0.03529411765, green: 0.368627451, blue: 0.6705882353, alpha: 1)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
