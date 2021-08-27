@@ -13,7 +13,6 @@ class MockNetworkService: NetworkServiceProtocol {
     
     var isGetNewsCalled = false
     var completionClosure: ((Result<News?, NSError>) -> Void)!
-    var completeArticles: [Article] = [Article]() // Array of stubs
     
     func getNews(completion: @escaping (Result<News?, NSError>) -> Void) {
         isGetNewsCalled = true
@@ -21,7 +20,7 @@ class MockNetworkService: NetworkServiceProtocol {
     }
     
     func getSuccess() {
-        completionClosure(.success(News(status: "ok", totalResults: 0, articles:completeArticles)))
+        completionClosure(.success(News(status: "ok", totalResults: 0, articles:[Article]())))
     }
     
     func getFail(error: NSError?) {

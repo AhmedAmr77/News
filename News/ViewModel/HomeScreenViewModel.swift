@@ -101,6 +101,4 @@ class HomeScreenViewModel: ViewModelProtocol {
             connectivitySubject.onNext(false)
         }
     }
-    
-    
 }

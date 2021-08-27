@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let newsURL = "https://newsapi.org/v2/top-headlines?country=eg&apiKey=63b1f94dad044add871d1e319c630265"
+    static let newsURL = "https://newsapi.org/v2/top-headlines?country=eg&apiKey=12eb2affe6b248d8af18c9ee2d1ba1e9"// 63b1f94dad044add871d1e319c630265 - 12eb2affe6b248d8af18c9ee2d1ba1e9
     static let NetworkServiceErrorMessage = "Error in Network Service"
     static let homeScreenNibCell = "CardTableViewCell"
     static let detailsScreenVC = "DetailsScreenViewController"
