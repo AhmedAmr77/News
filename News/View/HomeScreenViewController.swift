@@ -121,16 +121,14 @@ extension HomeScreenViewController {
                 switch boolValue{
                 case true:
                     self.noConnectionContainerView.isHidden = true
-                    print("connectivityObservable true")
                 case false:
                     self.noConnectionContainerView.isHidden = false
-                    print("connectivityObservable false")
                 }
         }).disposed(by: disposeBag)
         
         homeScreenViewModel.errorObservable.subscribe(onNext: {[weak self] (message) in
             guard let self = self else { return }
-            self.showError(message: "\(message)\nPlease swipe down to refresh")
+            self.showError(message: message)
         }).disposed(by: disposeBag)
         
         homeScreenViewModel.noItemObservable.subscribe(onNext: {[weak self] (boolValue) in
@@ -156,7 +154,7 @@ extension HomeScreenViewController {
         }).disposed(by: disposeBag)
     }
     private func showError(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: "\(message)\nPlease swipe down to refresh", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }

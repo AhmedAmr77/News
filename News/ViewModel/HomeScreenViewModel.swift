@@ -31,7 +31,7 @@ class HomeScreenViewModel: ViewModelProtocol {
     private lazy var searchValueObservable: Observable<String> = searchValue.asObservable()
     var searchValue: BehaviorRelay<String> = BehaviorRelay(value: "")
     
-    private var articles: [Article]!
+    var articles: [Article]!
     private var searchedData: [Article]!
     
     private var connectivitySubject = PublishSubject<Bool>()

@@ -10,9 +10,7 @@ import Foundation
 
 struct Article: Codable {
     let source: Source
-//    let author: String?
     let description: String?
     let title: String
-//    let url: String
     let urlToImage: String?
 }
